@@ -1,7 +1,7 @@
 #pragma once
 #include <bits/stdc++.h>
 using namespace std;
-
+#include "Structs.h"
 class Quadtree{
 public:
     virtual int totalPoints()=0;    // Retorna la cantidad de puntos almacenados en el QuadTree
