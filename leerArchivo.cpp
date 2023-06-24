@@ -1,4 +1,4 @@
-#include "quadtree.h"
+/*#include "quadtree.h"
 #include <bits/stdc++.h>
 
 
@@ -68,4 +68,4 @@ int main(){
     
     
 
-}
+}*/

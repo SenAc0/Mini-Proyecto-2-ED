@@ -165,9 +165,55 @@ vector<Point> Quad::list(){
 	puntos.push_back(p);
 	return puntos;
 }
+
 int Quad::countRegion(Point p, int d){
-	return 0;
+    int minX = p.x - d;
+    int maxX = p.x + d;
+    int minY = p.y - d;
+    int maxY = p.y + d;
+    int count = 0;
+    _countRegion(this, minX, maxX, minY, maxY, count);
+
+    return count;
 }
+
+void Quad::_countRegion(Quad* quad, int minX, int maxX, int minY, int maxY, int& count){
+    if (quad == NULL)
+        return;
+    if (quad->n != NULL) {
+        if (quad->n->pos.x >= minX && quad->n->pos.x <= maxX && quad->n->pos.y >= minY && quad->n->pos.y <= maxY) {
+            count++;
+        }
+        return;
+    }
+    _countRegion(quad->topLeftTree, minX, maxX, minY, maxY, count);
+    _countRegion(quad->topRightTree, minX, maxX, minY, maxY, count);
+    _countRegion(quad->botLeftTree, minX, maxX, minY, maxY, count);
+    _countRegion(quad->botRightTree, minX, maxX, minY, maxY, count);
+}
+
 int Quad::AggregateRegion(Point p, int d){
-	return 0;
+    int minX = p.x - d;
+    int maxX = p.x + d;
+    int minY = p.y - d;
+    int maxY = p.y + d;
+    int count = 0;
+    _AggregateRegion(this, minX, maxX, minY, maxY, count);
+
+    return count;
+}
+
+void Quad::_AggregateRegion(Quad* quad, int minX, int maxX, int minY, int maxY, int& count){
+    if (quad == NULL)
+        return;
+    if (quad->n != NULL) {
+        if (quad->n->pos.x >= minX && quad->n->pos.x <= maxX && quad->n->pos.y >= minY && quad->n->pos.y <= maxY) {
+            count=count+quad->n->data;
+        }
+        return;
+    }
+    _AggregateRegion(quad->topLeftTree, minX, maxX, minY, maxY, count);
+    _AggregateRegion(quad->topRightTree, minX, maxX, minY, maxY, count);
+    _AggregateRegion(quad->botLeftTree, minX, maxX, minY, maxY, count);
+    _AggregateRegion(quad->botRightTree, minX, maxX, minY, maxY, count);
 }

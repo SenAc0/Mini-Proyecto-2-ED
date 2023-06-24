@@ -1,13 +1,5 @@
 #include "quadtree.h"
 
-
-
-
-
-
-
-
-/*
 int main(){
     Quad plane2D(Point(0, 0), Point(8, 8));
 
@@ -41,7 +33,8 @@ int main(){
     if(p != NULL) cout << p->data << endl;
     else cout << "No existe el punto." << endl;
     // Contenido en la coordenada (1,5): No existe el punto.
-
+    cout << "Cantidad de puntos a una distancia 2 de las coordenadas (4,2): "<<plane2D.countRegion(Point(4,2), 2) << endl; //ejemplo en canvas
+    cout << "Poblacion estimada a una distancia 2 de las coordenadas (4,2): "<< plane2D.AggregateRegion(Point(4,2), 2) << endl; //ejemplo en canvas
 
     return 0;
-}*/
+}
