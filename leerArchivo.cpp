@@ -1,22 +1,28 @@
-/*#include "quadtree.h"
+#include "quadtree.h"
 #include <bits/stdc++.h>
 
 
 #define Archivo "worldcitiespop_fixed.csv"
 
-vector<pair<Point,Data>> leer(int numeroDeLineas){
-    vector<pair<Point,Data>> ciudades;
-    Data tempdata;
-    Point temppoint;
+
+/*
+vector<Node> leer(int numeroDeLineas){
+    vector<Node> ciudades;
+    Node nodo;
+
     string citya;
     string country;
+    string accentcity;
+
     double x;
     double y;
     string X;
     string Y;
+
     double population;
     string POPULATION;
-    string accentcity;
+
+    
     int region;
     string REGION;
 
@@ -37,16 +43,21 @@ vector<pair<Point,Data>> leer(int numeroDeLineas){
         getline(lineaactual,X,delimitador);
         getline(lineaactual,Y,delimitador);
 
-        tempdata.city = citya;
+
+        replace(X.begin(), X.end(), ',', '.');
+        replace(Y.begin(), Y.end(), ',', '.');
+
         population = stod(POPULATION);
-        tempdata.population = population;
         x= stod(X);
         y = stod(Y);
-        temppoint.x = x;
-        temppoint.y = y;
+        
+        nodo.data = population;
+        nodo.pos.x = x;
+        nodo.pos.y = y;
+        
 
         
-        ciudades.push_back({temppoint, tempdata});
+        ciudades.push_back(nodo);
     }
 
 
@@ -59,11 +70,11 @@ vector<pair<Point,Data>> leer(int numeroDeLineas){
 
 int main(){
     int n = 100;
-    vector<pair<Point,Data>> citys;
+    vector<Node> citys;
     citys = leer(n);
     for (int i = 0; i < n; i++)
     {
-        cout << citys[i].first.x << ","<< citys[i].first.y<< " " << citys[i].second.city << " " << citys[i].second.population<<endl;
+        cout << citys[i].pos.x << ","<< citys[i].pos.y << "      Data: "<<citys[i].data<< endl;
     }
     
     

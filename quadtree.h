@@ -5,21 +5,21 @@ using namespace std;
 
 class Quad: public Quadtree{
 
-    int cantPoints, cantNodes;
+    int cantPoints=5, cantNodes;
     bool ocupado; //false blanco, true negro
     // Hold details of the boundary of this node
     Point topLeft;
     Point botRight;
- 
+    public:
     // Contains details of node
     Node* n;
- 
+    
     // Children of this tree
     Quad* topLeftTree;
     Quad* topRightTree;
     Quad* botLeftTree;
     Quad* botRightTree;
-    public:
+    
     
     Quad()
     {

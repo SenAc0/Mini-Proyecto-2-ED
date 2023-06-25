@@ -19,8 +19,12 @@ void Quad::insert(Point p, int data)
 	// We cannot subdivide this quad further
 	if (abs(topLeft.x - botRight.x) <= 1
 		&& abs(topLeft.y - botRight.y) <= 1) {
-	  if (n == NULL)
-			n = node;
+	  if (n == NULL){
+		n = node;
+		ocupado = true;
+
+	  }
+			
 
 	    return;
 	}
