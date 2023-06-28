@@ -86,7 +86,8 @@ stacknodo.pop();
 
     //Preorder para recorrer
     plano.preorder(plano.getraiz());
-    cout << endl;
+    cout << endl;                      //borrar de la linea 87 a la 92 si empiezan a salir muchos nros aleatorios
+
     //solo toma los nodos negros
     cout << "Cantidad de nodos: " << plano.totalNodes() << endl;
     cout << endl;
