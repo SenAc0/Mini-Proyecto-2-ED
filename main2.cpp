@@ -1,12 +1,9 @@
 /*#include "raiz.h"
-#include <iostream>
-#include <sstream>
-#include <fstream>
-#include <string>
-#include <stack>
-#include <algorithm>´
-#include <chrono>
-#include <cstdlib>}
+//#include <sstream>
+//#include <fstream>
+//#include <algorithm>  ya están incluidas de antes, las dejo como comentario para que sepa qué se usó
+//#include <chrono>
+//#include <cstdlib>}
 #define Archivo "worldcitiespop_fixed.csv"
 int main() {
     double latmax = -200;

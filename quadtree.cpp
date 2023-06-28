@@ -228,7 +228,7 @@ void Quad::_countRegion(Quad* quad, int minX, int maxX, int minY, int maxY, int&
     _countRegion(quad->botRightTree, minX, maxX, minY, maxY, count);
 }
 
-int Quad::AggregateRegion(Point p, int d){
+long long Quad::AggregateRegion(Point p, int d){
     int minX = p.x - d;
     int maxX = p.x + d;
     int minY = p.y - d;
