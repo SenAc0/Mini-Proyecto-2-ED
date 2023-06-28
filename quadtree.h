@@ -49,7 +49,9 @@ class Quad: public Quadtree{
     void insert(Point p, int data);
     
     int totalPoints();
+    void _countPoints(Quad* quad, int& count);
     int totalNodes();
+    void _countNodes(Quad* quad, int& count);
     vector<Point> list();
     int countRegion(Point p, int d);
     void _countRegion(Quad* quad, int minX, int maxX, int minY, int maxY, int& count);

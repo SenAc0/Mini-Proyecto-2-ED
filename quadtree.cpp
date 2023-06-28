@@ -6,8 +6,6 @@ using namespace std;
 void Quad::insert(Point p, int data) 
 {
 	Node* node = new Node(p,data);
-
-
         if (node == NULL)
 		return;
 
@@ -158,10 +156,35 @@ void Quad::printQuadTree()
 };
 
 int Quad::totalPoints(){
-	return cantPoints;
+    int count= 0;
+    _countPoints(this, count);
+    return count;
 }
+void Quad::_countPoints(Quad* quad, int& count){
+    if (quad == NULL) return;
+    if (quad->n != NULL) {
+        count++;
+        return;
+    }
+    _countPoints(quad->topLeftTree, count);
+    _countPoints(quad->topRightTree, count);
+    _countPoints(quad->botLeftTree, count);
+    _countPoints(quad->botRightTree, count);
+}
+
 int Quad::totalNodes(){
-	return cantNodes;
+    int count= 0;
+    _countNodes(this, count);
+    return count;
+}
+void Quad::_countNodes(Quad* quad, int& count){ //solo cuenta nodos negros (revisar insert)
+    if (quad == NULL) return;
+	count++;
+    _countNodes(quad->topLeftTree, count);
+    _countNodes(quad->topRightTree, count);
+    _countNodes(quad->botLeftTree, count);
+    _countNodes(quad->botRightTree, count);
+	
 }
 vector<Point> Quad::list(){
 	Point p(0,0);
