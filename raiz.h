@@ -14,7 +14,7 @@ class QuadArbol: public Quad{
     int totalNodes();
     void insert(Point p, int data);
     int countRegion(Point p, int d);
-    int AggregateRegion(Point p, int d);
+    long long AggregateRegion(Point p, int d);
     Node* search(Point p);
 
   

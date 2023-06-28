@@ -31,7 +31,7 @@
 int QuadArbol::countRegion(Point p, int d){
    return root->countRegion(p,d);
 }
-int QuadArbol::AggregateRegion(Point p, int d){
+long long QuadArbol::AggregateRegion(Point p, int d){
    return root->AggregateRegion(p,d);
 }
 void QuadArbol::insert(Point p, int data){

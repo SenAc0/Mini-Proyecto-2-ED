@@ -233,13 +233,13 @@ int Quad::AggregateRegion(Point p, int d){
     int maxX = p.x + d;
     int minY = p.y - d;
     int maxY = p.y + d;
-    int count = 0;
+    long long count = 0;
     _AggregateRegion(this, minX, maxX, minY, maxY, count);
 
     return count;
 }
 
-void Quad::_AggregateRegion(Quad* quad, int minX, int maxX, int minY, int maxY, int& count){
+void Quad::_AggregateRegion(Quad* quad, int minX, int maxX, int minY, int maxY, long long& count){
     if (quad == NULL)
         return;
     if (quad->n != NULL) {
