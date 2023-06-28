@@ -186,13 +186,22 @@ void Quad::_countNodes(Quad* quad, int& count){ //solo cuenta nodos negros (revi
     _countNodes(quad->botRightTree, count);
 	
 }
-vector<Point> Quad::list(){
-	Point p(0,0);
-	vector<Point> puntos;
-	puntos.push_back(p);
-	return puntos;
+vector<Node*> Quad::list(){
+	vector<Node*> lista;
+	_list(this,lista);
+	return lista;
 }
-
+void Quad::_list(Quad* quad, vector<Node*>& lista){
+    if (quad == NULL) return;
+    if (quad->n != NULL) {
+        lista.push_back(quad->n);
+        return;
+    }
+    _list(quad->topLeftTree, lista);
+    _list(quad->topRightTree, lista);
+    _list(quad->botLeftTree, lista);
+    _list(quad->botRightTree, lista);
+}
 int Quad::countRegion(Point p, int d){
     int minX = p.x - d;
     int maxX = p.x + d;

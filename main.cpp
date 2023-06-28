@@ -38,6 +38,10 @@ int main(){
 
     cout << "Cantidad de puntos en el quadtree: "<<plane2D.totalPoints()<<endl;
     cout << "Cantidad de nodos en el quadtree: "<<plane2D.totalNodes()<<endl;
+    cout <<"Lista :"<<endl;
+    for(auto l : plane2D.list()){
+        cout  << l->pos.x<< ","<<l->pos.y << " " <<l->data<< endl;
+    }
 
     
 

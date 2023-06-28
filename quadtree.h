@@ -5,7 +5,6 @@ using namespace std;
 
 class Quad: public Quadtree{
 
-    int cantPoints=5, cantNodes;
     bool ocupado; //false blanco, true negro
     // Hold details of the boundary of this node
     Point topLeft;
@@ -52,7 +51,8 @@ class Quad: public Quadtree{
     void _countPoints(Quad* quad, int& count);
     int totalNodes();
     void _countNodes(Quad* quad, int& count);
-    vector<Point> list();
+    vector<Node*> list();
+    void _list(Quad* quad, vector<Node*>& lista);
     int countRegion(Point p, int d);
     void _countRegion(Quad* quad, int minX, int maxX, int minY, int maxY, int& count);
     int AggregateRegion(Point p, int d);
